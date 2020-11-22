@@ -56,8 +56,8 @@ void FirstVersion::solve()
         for(int x : _way) 
         {
             std::cout<<x<<" ";
-            std::cout<<std::endl;
         }
+        std::cout<<std::endl;
     }
 }
 
@@ -69,5 +69,19 @@ void FirstVersion::clearWay()
 
 void FirstVersion::NearestNeighbourAlgorithm(int s)
 {
-
+    _way.push_back(s);
+    _used[s] = true;
+    int mn = INF, id_mn = 0;
+    for (int i = 1; i <= getCountOfVertex_N(); i++)
+    {
+        if(_graph[s][i] == -INF || _used[i]) continue;
+        if (_graph[s][i] < mn)
+        {
+            mn = i;
+            id_mn = i;
+        }
+    }
+    if(!id_mn) return;
+    NearestNeighbourAlgorithm(id_mn);    
 }
+

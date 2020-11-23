@@ -40,7 +40,7 @@ void OptimizedVersion::setGraph(std::vector<std::pair<std::pair<int, int>, int>>
     }
 }
 
-std::vector<int> OptimizedVersion::sortGraph()
+void OptimizedVersion::sortGraph()
 {
     for (int i = 1; i <= getCountOfVertex_N(); i++)
     {
@@ -60,7 +60,7 @@ void OptimizedVersion::solve()
         clearWay();
         std::cout << "If we star from vertex of: " << i << std::endl;
         NearestNeighbourAlgorithm(i);
-        std::cout << "Count of visited of verttex" << _way.size() << std::endl;
+        std::cout << "Count of visited of vertex" << _way.size() << std::endl;
         for (int x : _way)
         {
             std::cout << x << " ";
@@ -71,7 +71,7 @@ void OptimizedVersion::solve()
 
 void OptimizedVersion::clearWay()
 {
-    for (int i = 0; i < _way.size(); i++)
+    for (int i : _way)
     {
         _used[_way[i]] = false;
     }

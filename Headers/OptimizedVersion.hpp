@@ -12,9 +12,9 @@ private:
     std::vector<std::vector<Edge>> _graph;
     std::vector<int> _way;
     void resizeUsed(int size);
-    bool compareEdges(Edge a, Edge b);
+    static bool compareEdges(Edge a, Edge b);
     void clearWay();
-    std::vector<int> sortGraph();
+    void sortGraph();
     void NearestNeighbourAlgorithm(int s);
     void setGraph(std::vector<std::pair<std::pair<int, int>, int>> graph);
 

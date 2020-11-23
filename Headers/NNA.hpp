@@ -18,5 +18,5 @@ public:
 
     virtual void solve() = 0;
     
-    ~NNA();
+    ~NNA() = default;
 };

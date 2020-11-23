@@ -21,6 +21,6 @@ public:
     int getNew_M();
     std::vector<std::pair<std::pair<int, int>, int>> getNew_Graph();
     RandomConnectedGraph();
-    ~RandomConnectedGraph();
+    ~RandomConnectedGraph() = default;
 };
 

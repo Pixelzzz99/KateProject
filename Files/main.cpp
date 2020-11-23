@@ -1,8 +1,10 @@
 #include <iostream>
+#include "OptimizedVersion.hpp"
+#include "FirstVersion.hpp"
+#include "RandomConnectedGraph.hpp"
 
 int main()
 {
-    std::cout<<"Hello World"<<std::endl;
-    system("pause>nul");
-    return 0;
+    RandomConnectedGraph connectedGraph;
+    OptimizedVersion test1(connectedGraph);
 }

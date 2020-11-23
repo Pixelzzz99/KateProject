@@ -9,7 +9,7 @@ class RandomConnectedGraph
 {
 private:
     int MIN_COUNT = 1;
-    int MAX_COUNT = 10;
+    int MAX_COUNT = 1000;
     int new_n;
     int new_m;
     std::vector<std::pair<std::pair<int, int>, int>> new_Graph;

@@ -54,20 +54,25 @@ void FirstVersion::solve()
     for (int i = 1; i <= getCountOfVertex_N(); i++)
     {
         clearWay();
-        std::cout << "IF WE STAR FROM VERTEX OF: " << i << std::endl;
+        //std::cout << "IF WE START FROM VERTEX OF: " << i << std::endl;
         NearestNeighbourAlgorithm(i);
-        std::cout << "Count of visited of vertex " << _way.size() << std::endl;
+        //std::cout << "Count of visited of vertex " << _way.size() << std::endl;
+        /*
         for(int x : _way) 
         {
             std::cout<<x<<" ";
         }
-        std::cout<<std::endl;
+        */
+        //std::cout<<std::endl;
     }
 }
 
 void FirstVersion::clearWay()
 {
-    for (int i = 0; i < _way.size(); i++) _used[_way[i]] = false;
+    for(auto i : _way)
+    {
+        _used[i] = false;
+    }
     _way.clear();
 }
 
@@ -81,7 +86,7 @@ void FirstVersion::NearestNeighbourAlgorithm(int s)
         if(_graph[s][i] == -INF || _used[i]) continue;
         if (_graph[s][i] < mn)
         {
-            mn = i;
+            mn = _graph[s][i];
             id_mn = i;
         }
     }

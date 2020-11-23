@@ -9,7 +9,6 @@ OptimizedVersion::OptimizedVersion(RandomConnectedGraph randomTask)
     resizeUsed(getCountOfVertex_N());
     setGraph(randomTask.getNew_Graph());
     sortGraph();
-
 }
 
 OptimizedVersion::OptimizedVersion(int n, int m, std::vector<std::pair<std::pair<int, int>, int>> graph)
@@ -20,7 +19,6 @@ OptimizedVersion::OptimizedVersion(int n, int m, std::vector<std::pair<std::pair
     setGraph(graph);
     sortGraph();
 }
-
 
 void OptimizedVersion::resizeUsed(int size)
 {
@@ -58,14 +56,15 @@ void OptimizedVersion::solve()
     for (int i = 1; i <= getCountOfVertex_N(); i++)
     {
         clearWay();
-        std::cout << "If we star from vertex of: " << i << std::endl;
+        //std::cout << "If we start from vertex of: " << i << std::endl;
         NearestNeighbourAlgorithm(i);
-        std::cout << "Count of visited of vertex " << _way.size() << std::endl;
+        //std::cout << "Count of visited of vertex " << _way.size() << std::endl;
+        /*
         for (int x : _way)
         {
             std::cout << x << " ";
         }
-        std::cout << std::endl;
+        std::cout << std::endl;*/
     }
 }
 
@@ -85,9 +84,8 @@ void OptimizedVersion::NearestNeighbourAlgorithm(int s)
     for (Edge edge : _graph[s])
     {
         if (_used[edge.to])
-        {
             continue;
-        }
         NearestNeighbourAlgorithm(edge.to);
+        break;
     }
 }

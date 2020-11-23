@@ -35,8 +35,8 @@ void OptimizedVersion::setGraph(std::vector<std::pair<std::pair<int, int>, int>>
         int u = graph[i].first.first;
         int v = graph[i].first.second;
         int length = graph[i].second;
-        this->_graph[v].push_back({u, length});
-        this->_graph[u].push_back({v, length});
+        this->_graph[v].push_back({length, u});
+        this->_graph[u].push_back({length, v});
     }
 }
 
@@ -60,7 +60,7 @@ void OptimizedVersion::solve()
         clearWay();
         std::cout << "If we star from vertex of: " << i << std::endl;
         NearestNeighbourAlgorithm(i);
-        std::cout << "Count of visited of vertex" << _way.size() << std::endl;
+        std::cout << "Count of visited of vertex " << _way.size() << std::endl;
         for (int x : _way)
         {
             std::cout << x << " ";
@@ -73,7 +73,7 @@ void OptimizedVersion::clearWay()
 {
     for (int i : _way)
     {
-        _used[_way[i]] = false;
+        _used[i] = false;
     }
     _way.clear();
 }

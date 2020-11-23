@@ -30,7 +30,7 @@ void OptimizedVersion::resizeUsed(int size)
 
 void OptimizedVersion::setGraph(std::vector<std::pair<std::pair<int, int>, int>> graph)
 {
-    for (int i = 1; i <= getCountOfEdges_M(); i++)
+    for (int i = 0; i < getCountOfEdges_M(); i++)
     {
         int u = graph[i].first.first;
         int v = graph[i].first.second;

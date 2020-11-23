@@ -1,7 +1,11 @@
 #include "FirstVersion.hpp"
 
-FirstVersion::FirstVersion(RandomConnectedGraph)
+FirstVersion::FirstVersion(RandomConnectedGraph randomTask)
 {
+    setCountOfVertex_N(randomTask.getNew_N());
+    setCountOfEdges_M(randomTask.getNew_M());
+    resizeGraph(getCountOfVertex_N());
+    setGraph(randomTask.getNew_Graph());
 }
 
 FirstVersion::FirstVersion(int n, int m, std::vector<std::pair<std::pair<int, int>, int>> graph)
@@ -35,7 +39,7 @@ void FirstVersion::setGraph(std::vector<std::pair<std::pair<int, int>, int>> gra
         }
     }
 
-    for (int i = 1; i <= getCountOfEdges_M(); i++)
+    for (int i = 0; i < getCountOfEdges_M(); i++)
     {
         int u = graph[i].first.first;
         int v = graph[i].first.second;
@@ -52,7 +56,7 @@ void FirstVersion::solve()
         clearWay();
         std::cout << "IF WE STAR FROM VERTEX OF: " << i << std::endl;
         NearestNeighbourAlgorithm(i);
-        std::cout << "Count of visited of verttex" << _way.size() << std::endl;
+        std::cout << "Count of visited of vertex " << _way.size() << std::endl;
         for(int x : _way) 
         {
             std::cout<<x<<" ";

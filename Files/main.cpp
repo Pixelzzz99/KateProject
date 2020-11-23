@@ -6,5 +6,9 @@
 int main()
 {
     RandomConnectedGraph connectedGraph;
-    OptimizedVersion test1(connectedGraph);
+
+    FirstVersion* test1 = new FirstVersion(connectedGraph);
+    test1->solve();
+    system("pause>nul");
+    return 0;
 }

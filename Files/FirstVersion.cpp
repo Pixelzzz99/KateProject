@@ -1,6 +1,6 @@
 #include "FirstVersion.hpp"
 
-FirstVersion::FirstVersion(RandomConnectedGraph randomTask)
+FirstVersion::FirstVersion(RandomConnectedGraph *randomTask)
 {
     setCountOfVertex_N(randomTask.getNew_N());
     setCountOfEdges_M(randomTask.getNew_M());

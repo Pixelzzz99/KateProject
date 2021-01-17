@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <iostream>
 
-OptimizedVersion::OptimizedVersion(RandomConnectedGraph randomTask)
+OptimizedVersion::OptimizedVersion(RandomConnectedGraph *randomTask)
 {
     setCountOfVertex_N(randomTask.getNew_N());
     setCountOfEdges_M(randomTask.getNew_M());

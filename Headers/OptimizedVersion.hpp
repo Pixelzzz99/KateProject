@@ -1,12 +1,13 @@
 #pragma once
-#include "NNA.hpp"
+#include "NNAStrategy.hpp"
 #include "Edge.hpp"
 #include "RandomConnectedGraph.hpp"
 #include <vector>
 #include <utility>
 
-class OptimizedVersion : NNA
+class OptimizedVersion : public NNAStrategy
 {
+
 private:
     std::vector<bool> _used;
     std::vector<std::vector<Edge>> _graph;
@@ -19,8 +20,9 @@ private:
     void setGraph(std::vector<std::pair<std::pair<int, int>, int>> graph);
 
 public:
-    OptimizedVersion(RandomConnectedGraph);
+
+    OptimizedVersion(RandomConnectedGraph *);
     OptimizedVersion(int n, int m, std::vector<std::pair<std::pair<int, int>, int>> graph);
-    ~OptimizedVersion() = default;
     void solve() override;
+
 };

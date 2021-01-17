@@ -1,10 +1,10 @@
 #pragma once
-#include "NNA.hpp"
 #include <vector>
 #include "RandomConnectedGraph.hpp"
 #include "iostream"
+#include "NNAStrategy.hpp"
 
-class FirstVersion : NNA
+class FirstVersion : public NNAStrategy 
 {
 private:
     const int INF = 1e9;
@@ -17,9 +17,8 @@ private:
     void setGraph(std::vector<std::pair<std::pair<int, int>, int>> graph);
 
 public:
-    FirstVersion(RandomConnectedGraph);
+    FirstVersion(RandomConnectedGraph *);
     FirstVersion(int n, int m, std::vector<std::pair<std::pair<int, int>, int>> graph);
-    ~FirstVersion() = default;
 
     void solve() override;
 };

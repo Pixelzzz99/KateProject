@@ -15,12 +15,14 @@ private:
     std::vector<std::pair<std::pair<int, int>, int>> new_Graph;
     int Randomizator(int min, int max);
     void GenerateGraph();
+    void GenerateGraph(int n , int m);
 
 public:
     int getNew_N();
     int getNew_M();
     std::vector<std::pair<std::pair<int, int>, int>> getNew_Graph();
     RandomConnectedGraph();
+    RandomConnectedGraph(int n, int m);
     ~RandomConnectedGraph() = default;
 };
 

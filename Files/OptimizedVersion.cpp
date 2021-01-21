@@ -4,10 +4,10 @@
 
 OptimizedVersion::OptimizedVersion(RandomConnectedGraph *randomTask)
 {
-    setCountOfVertex_N(randomTask.getNew_N());
-    setCountOfEdges_M(randomTask.getNew_M());
+    setCountOfVertex_N(randomTask->getNew_N());
+    setCountOfEdges_M(randomTask->getNew_M());
     resizeUsed(getCountOfVertex_N());
-    setGraph(randomTask.getNew_Graph());
+    setGraph(randomTask->getNew_Graph());
     sortGraph();
 }
 
@@ -53,19 +53,17 @@ bool OptimizedVersion::compareEdges(Edge a, Edge b)
 
 void OptimizedVersion::solve()
 {
-    for (int i = 1; i <= getCountOfVertex_N(); i++)
+    int v = 1;
+    clearWay();
+    std::cout << "If we start from vertex of: " << v << std::endl;
+    NearestNeighbourAlgorithm(v);
+    std::cout << "Count of visited of vertex " << _way.size() << std::endl;
+
+    for (int x : _way)
     {
-        clearWay();
-        //std::cout << "If we start from vertex of: " << i << std::endl;
-        NearestNeighbourAlgorithm(i);
-        //std::cout << "Count of visited of vertex " << _way.size() << std::endl;
-        /*
-        for (int x : _way)
-        {
-            std::cout << x << " ";
-        }
-        std::cout << std::endl;*/
+        std::cout << x << " ";
     }
+    std::cout << std::endl;
 }
 
 void OptimizedVersion::clearWay()

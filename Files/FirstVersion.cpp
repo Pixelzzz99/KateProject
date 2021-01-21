@@ -2,10 +2,10 @@
 
 FirstVersion::FirstVersion(RandomConnectedGraph *randomTask)
 {
-    setCountOfVertex_N(randomTask.getNew_N());
-    setCountOfEdges_M(randomTask.getNew_M());
+    setCountOfVertex_N(randomTask->getNew_N());
+    setCountOfEdges_M(randomTask->getNew_M());
     resizeGraph(getCountOfVertex_N());
-    setGraph(randomTask.getNew_Graph());
+    setGraph(randomTask->getNew_Graph());
 }
 
 FirstVersion::FirstVersion(int n, int m, std::vector<std::pair<std::pair<int, int>, int>> graph)
@@ -51,25 +51,23 @@ void FirstVersion::setGraph(std::vector<std::pair<std::pair<int, int>, int>> gra
 
 void FirstVersion::solve()
 {
-    for (int i = 1; i <= getCountOfVertex_N(); i++)
+    int v = 1;
+    clearWay();
+    std::cout << "IF WE START FROM VERTEX OF: " << v << std::endl;
+    NearestNeighbourAlgorithm(v);
+    std::cout << "Count of visited of vertex " << _way.size() << std::endl;
+
+    for (int x : _way)
     {
-        clearWay();
-        //std::cout << "IF WE START FROM VERTEX OF: " << i << std::endl;
-        NearestNeighbourAlgorithm(i);
-        //std::cout << "Count of visited of vertex " << _way.size() << std::endl;
-        /*
-        for(int x : _way) 
-        {
-            std::cout<<x<<" ";
-        }
-        */
-        //std::cout<<std::endl;
+        std::cout << x << " ";
     }
+
+    std::cout << std::endl;
 }
 
 void FirstVersion::clearWay()
 {
-    for(auto i : _way)
+    for (auto i : _way)
     {
         _used[i] = false;
     }
@@ -83,14 +81,15 @@ void FirstVersion::NearestNeighbourAlgorithm(int s)
     int mn = INF, id_mn = 0;
     for (int i = 1; i <= getCountOfVertex_N(); i++)
     {
-        if(_graph[s][i] == -INF || _used[i]) continue;
+        if (_graph[s][i] == -INF || _used[i])
+            continue;
         if (_graph[s][i] < mn)
         {
             mn = _graph[s][i];
             id_mn = i;
         }
     }
-    if(!id_mn) return;
-    NearestNeighbourAlgorithm(id_mn);    
+    if (!id_mn)
+        return;
+    NearestNeighbourAlgorithm(id_mn);
 }
-
